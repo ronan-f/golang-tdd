@@ -19,6 +19,10 @@ func hello(name string, language string) string {
 		name = "world"
 	}
 
+	return getGreetingPrefix(language) + " " + name
+}
+
+func getGreetingPrefix(language string) string {
 	prefix := englishHelloPrefix
 
 	switch language {
@@ -30,5 +34,5 @@ func hello(name string, language string) string {
 		prefix = irishHelloPrefix
 	}
 
-	return prefix + " " + name
+	return prefix
 }
