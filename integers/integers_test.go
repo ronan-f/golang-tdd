@@ -1,4 +1,4 @@
-package main
+package integers
 
 import "testing"
 
@@ -7,6 +7,6 @@ func TestAdd(t *testing.T) {
 	want := 2
 
 	if got != want {
-		t.Errorf("Expected %q but received %q", want, got)
+		t.Errorf("Expected %d but received %d", want, got)
 	}
 }
