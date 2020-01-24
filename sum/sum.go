@@ -9,3 +9,15 @@ func Sum(numbers []int) int {
 
 	return sum
 }
+
+// AddAll should take a slice of slices and return a slice with each slices sum
+func AddAll(slices ...[]int) []int {
+	lengthOfNumbers := len(slices)
+	sums := make([]int, lengthOfNumbers)
+
+	for i, numbers := range slices {
+		sums[i] = Sum(numbers)
+	}
+
+	return sums
+}

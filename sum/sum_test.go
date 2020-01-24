@@ -1,6 +1,9 @@
 package sum
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestSum(t *testing.T) {
 	assertCorrectSum := func(t *testing.T, result, expected int) {
@@ -28,4 +31,13 @@ func TestSum(t *testing.T) {
 		assertCorrectSum(t, result, expected)
 
 	})
+}
+
+func TestSumAll(t *testing.T) {
+	result := AddAll([]int{1, 2, 3}, []int{2, 3, 4})
+	expected := []int{6, 9}
+
+	if !reflect.DeepEqual(result, expected) {
+		t.Errorf("Expected %v but got %v", expected, result)
+	}
 }
