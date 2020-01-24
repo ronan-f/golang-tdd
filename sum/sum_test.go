@@ -3,12 +3,29 @@ package sum
 import "testing"
 
 func TestSum(t *testing.T) {
-	numbers := [4]int{1, 2, 3, 4}
-
-	result := Sum(numbers)
-	expected := 10
-
-	if result != expected {
-		t.Errorf("Expected %d but received %d", expected, result)
+	assertCorrectSum := func(t *testing.T, result, expected int) {
+		t.Helper()
+		if result != expected {
+			t.Errorf("Expected %d but got %d", expected, result)
+		}
 	}
+
+	t.Run("Collection of 4 nums", func(t *testing.T) {
+		numbers := []int{1, 2, 3, 4}
+
+		result := Sum(numbers)
+		expected := 10
+
+		assertCorrectSum(t, result, expected)
+	})
+
+	t.Run("Collection of any length", func(t *testing.T) {
+		nums := []int{1, 2, 3, 4, 5, 6, 7, 8}
+
+		result := Sum(nums)
+		expected := 36
+
+		assertCorrectSum(t, result, expected)
+
+	})
 }
