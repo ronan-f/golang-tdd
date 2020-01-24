@@ -6,6 +6,7 @@ func main() {
 	fmt.Println("Hello world")
 }
 
-func add(num1, num2 int) int {
+// Add takes 2 numbers and returns their sum
+func Add(num1, num2 int) int {
 	return num1 + num2
 }
