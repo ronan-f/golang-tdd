@@ -23,6 +23,15 @@ func TestIsNameRonan(t *testing.T) {
 	}
 }
 
+func TestReplaceAllRonans(t *testing.T) {
+	replace := ReplaceAllRonans("Ronan, Ronan, Ronan", "Aidan")
+	expected := "Aidan, Aidan, Aidan"
+
+	if replace != expected {
+		t.Errorf("Expected %q but got %q", expected, replace)
+	}
+}
+
 func BenchmarkRepeat(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Repeat("a", 7)

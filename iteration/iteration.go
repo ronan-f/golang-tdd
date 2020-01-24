@@ -15,3 +15,8 @@ func Repeat(letter string, repeatCount int) string {
 func IsNameRonan(name string) int {
 	return strings.Compare(name, "Ronan")
 }
+
+// ReplaceAllRonans should take a string and replace all instances of the word "Ronan"
+func ReplaceAllRonans(sentence, replaceWith string) string {
+	return strings.ReplaceAll(sentence, "Ronan", replaceWith)
+}
