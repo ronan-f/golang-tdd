@@ -1,9 +1,16 @@
 package structs
 
+import "math"
+
 // Rectangle type
 type Rectangle struct {
 	Width  float64
 	Height float64
+}
+
+// Circle type
+type Circle struct {
+	radius float64
 }
 
 // Perimeter calcs rectangle per
@@ -11,7 +18,11 @@ func Perimeter(rectangle Rectangle) float64 {
 	return 2 * (rectangle.Height + rectangle.Width)
 }
 
-// Area returns area of shape
-func Area(rectangle Rectangle) float64 {
-	return rectangle.Width * rectangle.Height
+// Area of rectangle
+func (r Rectangle) Area() float64 {
+	return r.Height * r.Width
+}
+
+func (c Circle) Area() float64 {
+	return math.Pi * c.radius * c.radius
 }
