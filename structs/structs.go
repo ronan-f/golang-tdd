@@ -8,6 +8,11 @@ type Rectangle struct {
 	Height float64
 }
 
+// Shape interface
+type Shape interface {
+	Area() float64
+}
+
 // Circle type
 type Circle struct {
 	radius float64
@@ -23,6 +28,7 @@ func (r Rectangle) Area() float64 {
 	return r.Height * r.Width
 }
 
+// Area of circle
 func (c Circle) Area() float64 {
 	return math.Pi * c.radius * c.radius
 }
