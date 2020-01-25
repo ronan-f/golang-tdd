@@ -43,10 +43,25 @@ func TestSumAll(t *testing.T) {
 }
 
 func TestSumAllTails(t *testing.T) {
-	result := AddAllTails([]int{1, 2, 3}, []int{2, 3, 4})
-	expected := []int{5, 7}
-
-	if !reflect.DeepEqual(result, expected) {
-		t.Errorf("Expected %v but got %v", expected, result)
+	checkSums := func(t *testing.T, result, expected []int) {
+		t.Helper()
+		if !reflect.DeepEqual(result, expected) {
+			t.Errorf("Expected %v but got %v", expected, result)
+		}
 	}
+
+	t.Run("Correctly sums basic tails", func(t *testing.T) {
+		result := AddAllTails([]int{1, 2, 3}, []int{2, 3, 4})
+		expected := []int{5, 7}
+
+		checkSums(t, result, expected)
+
+	})
+
+	t.Run("Returns 0 if empty slice passed", func(t *testing.T) {
+		result := AddAllTails([]int{}, []int{2, 3, 4})
+		expected := []int{0, 7}
+
+		checkSums(t, result, expected)
+	})
 }
