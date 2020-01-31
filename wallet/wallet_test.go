@@ -13,6 +13,6 @@ func TestWallet(t *testing.T) {
 	want := Bitcoin(10)
 
 	if got != want {
-		t.Errorf("Got %d want %d", got, want)
+		t.Errorf("Got %s want %s", got, want)
 	}
 }

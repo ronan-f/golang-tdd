@@ -1,5 +1,7 @@
 package wallet
 
+import "fmt"
+
 // Wallet is a struct for storing currency
 type Wallet struct {
 	balance Bitcoin
@@ -16,4 +18,8 @@ func (w *Wallet) Deposit(amount Bitcoin) {
 // Balance shows current wallet balance
 func (w *Wallet) Balance() Bitcoin {
 	return w.balance
+}
+
+func (b Bitcoin) String() string {
+	return fmt.Sprintf("%d BTC", b)
 }
