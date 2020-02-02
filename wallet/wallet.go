@@ -23,10 +23,13 @@ func (w *Wallet) Balance() Bitcoin {
 	return w.balance
 }
 
+// ErrorInsufFunds human readable error
+var ErrorInsufFunds = errors.New("Cannot complete witdrawal. Insuf funds")
+
 // Withdraw deducts from wallet balance
 func (w *Wallet) Withdraw(amount Bitcoin) error {
 	if amount > w.balance {
-		return errors.New("Oh no")
+		return ErrorInsufFunds
 	}
 	w.balance -= amount
 	return nil
