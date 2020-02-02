@@ -1,6 +1,9 @@
 package maps
 
+// Dictionary is a custom type of map
+type Dictionary map[string]string
+
 // Search checks a dictionary for words
-func Search(dictionary map[string]string, word string) string {
-	return dictionary[word]
+func (d Dictionary) Search(word string) string {
+	return d[word]
 }
